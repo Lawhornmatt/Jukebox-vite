@@ -1,6 +1,6 @@
 # Jukebox
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  [![Bugs](https://img.shields.io/github/issues/Lawhornmatt/Jukebox-Project3/bug.svg)](https://github.com/Lawhornmatt/Jukebox-Project3/issues)
+  [![Bugs](https://img.shields.io/github/issues/Lawhornmatt/Jukebox-vite/bug.svg)](https://github.com/Lawhornmatt/Jukebox-vite/issues)
 
 ## TABLE OF CONTENTS:
 
