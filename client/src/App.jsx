@@ -1,6 +1,13 @@
 import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // This might need to be @types/react-router-dom instead?
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import reactLogo from './assets/react.svg'
 import './CSS/App.css'
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
 function App() {
   const [count, setCount] = useState(0)
