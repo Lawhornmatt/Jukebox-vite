@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Fake Man",
+    "email": "fake@noEmail.com",
+    "password": "123pass"
+  },
+  {
+    "name": "No Existo",
+    "email": "not@noEmail.com",
+    "password": "234pass"
+  },
+  {
+    "name": "Aint Here",
+    "email": "aint@noEmail.com",
+    "password": "345pass"
+  },
+  {
+    "name": "Data Dude",
+    "email": "data@noEmail.com",
+    "password": "456pass"
+  },
+  {
+    "name": "Filler Joe",
+    "email": "filler@noEmail.com",
+    "password": "567pass"
+  }
+]
