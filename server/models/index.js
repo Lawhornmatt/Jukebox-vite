@@ -1,3 +1,3 @@
-const User = require('./Tech');
+const User = require('./User');
 
 module.exports = { User };
