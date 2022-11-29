@@ -5,44 +5,26 @@ import About from './about'
 import Room from './Room'
 
 const Home = () => {
-    
-    
+    return (
+      <div className="App">
+        <h1>Vite + React</h1>
+          <div>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
+              <li>
+                <Link to="/room">Topics</Link>
+              </li>
+            </ul>
 
-    
-    ReactDOM.render(
-        <React.StrictMode>
-            <div className="App">
-    <div>
-    </div>
-    <h1>Vite + React</h1>
-    <Router>
-    <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/room">Topics</Link>
-        </li>
-      </ul>
-
-      <hr />
-        <Routes>
-        <Route exact path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/room" component={Room} />
-        </Routes>
-      
-    </div>
-  </Router>
-  </div>
-        </React.StrictMode>,
-        document.getElementById('root')
+            <hr />
+            
+          </div>
+      </div>
     )
-        
-    
 }
 export default Home;
