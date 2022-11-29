@@ -5,11 +5,11 @@ const VideoContainer = ({ videos = [] }) => {
     return (
         <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
             <Grid templateColumns='repeat(5, 1fr)' gap={6} m="4px" p="4px" w="50vw" overflowX="auto" overflowY="hidden" whiteSpace="nowrap">
-                <GridItem w='200px' h='100px' bg='blue.500'></GridItem>
-                <GridItem w='200px' h='100px' bg='blue.500' />
-                <GridItem w='200px' h='100px' bg='blue.500' />
-                <GridItem w='200px' h='100px' bg='blue.500' />
-                <GridItem w='200px' h='100px' bg='blue.500' />
+                <GridItem w='200px' h='125px' bg='blue.500'></GridItem>
+                <GridItem w='200px' h='125px' bg='blue.500' />
+                <GridItem w='200px' h='125px' bg='blue.500' />
+                <GridItem w='200px' h='125px' bg='blue.500' />
+                <GridItem w='200px' h='125px' bg='blue.500' />
             </Grid>
         </div>
     )
