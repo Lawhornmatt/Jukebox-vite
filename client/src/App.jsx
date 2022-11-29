@@ -15,29 +15,28 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    
-    <ApolloProvider client={client}>
-      <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <div className="container">
-            <Routes>
-              <Route 
-                path="/about" 
-                element={<About/>}
-              />
-              <Route 
-                path="/" 
-                element={<Home/>}
-              />
-              <Route 
-                path="/room" 
-                element={<Room/>}
-              />
-            </Routes>
+      <ApolloProvider client={client}>
+        <Router>
+          <div className="flex-column justify-flex-start min-100-vh">
+            <div className="container">
+              <Routes>
+                <Route 
+                  path="/about" 
+                  element={<About/>}
+                />
+                <Route 
+                  path="/" 
+                  element={<Home/>}
+                />
+                <Route 
+                  path="/room" 
+                  element={<Room/>}
+                />
+              </Routes>
+            </div>
           </div>
-        </div>
-      </Router>
-    </ApolloProvider>
+        </Router>
+      </ApolloProvider>
   )
 }
 
