@@ -2,11 +2,21 @@ const { User, Room } = require('../models');
 
 const resolvers = {
   Query: {
-    user: async () => {
-      return User.find({});
+    users: async () => {
+      return await User.find({}).populate('hosted_room');
+      
+      /*.populate({
+        path: 'hosted_room',
+        populate: 'room'
+      });*/
     },
-    room: async () => {
-      return Room.find({});
+    rooms: async () => {
+      return await Room.find({}).populate('host_id')
+      
+      /*.populate({
+        path: 'host_id',
+        populate: 'user'
+      });*/ 
     }
   },
   Mutation: {
