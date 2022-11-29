@@ -1,9 +1,12 @@
-const { User } = require('../models');
+const { User, Room } = require('../models');
 
 const resolvers = {
   Query: {
     user: async () => {
       return User.find({});
+    },
+    room: async () => {
+      return Room.find({});
     }
   },
   Mutation: {

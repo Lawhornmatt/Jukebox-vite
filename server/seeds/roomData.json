@@ -1,0 +1,20 @@
+[
+  {
+    "room_name": "Room One",
+    "current_vid": "fake URL string to a YouTube vid"
+  },
+  {
+    "room_name": "Room Dos",
+    "current_vid": "fake URL string to a YouTube vid",
+    "vid_queue": ["string of vids", "string of vids", "string of vids"]
+  },
+  {
+    "room_name": "Room Zwei",
+    "current_vid": "fake URL string to a YouTube vid",
+    "vid_queue": ["string of vids", "string of vids", "string of vids"]
+  },
+  {
+    "room_name": "Room Chotyry",
+    "current_vid": "fake URL string to a YouTube vid"
+  }
+]
