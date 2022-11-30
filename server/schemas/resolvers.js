@@ -18,7 +18,17 @@ const resolvers = {
     */
     createRoom: async (parent, { host_id, room_name }) => {
 
-      let res = await Room.create({ host_id, room_name });
+      let res = await Room.create({ 
+        host_id, 
+        room_name 
+      });
+
+      await User.updateOne(
+        { _id: host_id },
+        { hosted_room: res.id}
+      );
+
+
 
       return {
         id: res.id,
