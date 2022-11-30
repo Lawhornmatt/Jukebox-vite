@@ -1,12 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
 
 const About = () => {
-    ReactDOM.render(
-        <React.StrictMode>
-            <h1>Welcome ot the about page</h1>
-        </React.StrictMode>,
-        document.getElementById('root')
+    return (
+        <h1>Welcome ot the about page</h1>
     )
 };
 
