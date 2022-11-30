@@ -8,6 +8,7 @@ import About from './components/About.jsx'
 import Homepage from './components/Homepage.jsx'
 import Room from './components/Room.jsx'
 import Nav from './components/Nav';
+import Login from './components/Login';
 import { ChakraProvider } from '@chakra-ui/react';
 
 const client = new ApolloClient({
@@ -33,6 +34,10 @@ function App() {
                 <Route 
                   path="/room" 
                   element={<Room/>}
+                />
+                <Route 
+                  path="/login" 
+                  element={<Login/>}
                 />
               </Routes>
         </Router>
