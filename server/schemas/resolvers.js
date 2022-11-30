@@ -6,22 +6,13 @@ const resolvers = {
   Query: {
     users: async () => {
       return await User.find({}).populate('hosted_room');
-      
-      /*.populate({
-        path: 'hosted_room',
-        populate: 'room'
-      });*/
     },
     rooms: async () => {
       return await Room.find({}).populate('host_id')
-      
-      /*.populate({
-        path: 'host_id',
-        populate: 'user'
-      });*/ 
     }
   },
   Mutation: {
+    
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
@@ -44,6 +35,49 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    
+   
+    // Removed since darkmode is being saved in browser currently,
+    // Kept in comment because of the interesting update with aggregation pipeline found here:
+    // https://stackoverflow.com/questions/61104727/toggle-a-boolean-value-with-mongodb
+    /*
+    changeDarkmode: async (parent, { ID }) => {
+      return await User.updateOne(
+        { _id: ID },
+        [
+          { $set: { darkmode: { $not: "$darkmode" } } }
+        ]
+      )
+    },
+    */
+
+    createRoom: async (parent, { host_id, room_name }) => {
+
+      let res = await Room.create({ 
+        host_id, 
+        room_name 
+      });
+
+      await User.updateOne(
+        { _id: host_id },
+        { hosted_room: res.id}
+      );
+
+      return {
+        id: res.id,
+        ...res._doc
+      }
+    },
+
+    destroyRoom: async (parent, { ID }) => {
+
+      await User.updateOne(
+        { hosted_room: ID },
+        { hosted_room: null }
+      );
+
+      return (await Room.deleteOne({ _id: ID })).deletedCount;
     },
   },
 };

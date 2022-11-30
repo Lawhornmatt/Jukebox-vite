@@ -9,6 +9,7 @@ import Login from './components/Login.jsx'
 import Homepage from './components/Homepage.jsx'
 import Room from './components/Room.jsx'
 import Nav from './components/Nav';
+import Login from './components/Login';
 import { ChakraProvider } from '@chakra-ui/react';
 
 const httpLink = createHttpLink({
@@ -35,9 +36,8 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <ChakraProvider>
-        <Nav />
         <Router>
+          <Nav />
               <Routes>
                 <Route 
                   path="/about" 
@@ -57,7 +57,6 @@ function App() {
                 />
               </Routes>
         </Router>
-    </ChakraProvider>
     </ApolloProvider>
   )
 }

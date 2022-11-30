@@ -1,9 +1,8 @@
-import { ReactNode } from 'react';
+import React from 'react';
 import {
   Box,
   Flex,
   Avatar,
-  Link,
   Button,
   Menu,
   MenuButton,
@@ -17,6 +16,7 @@ import {
   Center,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 
 // const NavLink = ({ children }: { children: ReactNode }) => (
 //   <Link
@@ -40,9 +40,12 @@ export default function Nav() {
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Flex alignItems={'center'} padding={'5px'}>
-            <Box paddingRight={'15px'}>JukeBox</Box>
-            <Button colorScheme='blue'marginRight={'10px'}>Rooms</Button>
-            <Button colorScheme='blue'marginRight={'10px'}>About</Button>
+            <Link to='/'><Box paddingRight={'15px'}>JukeBox</Box></Link>
+
+            <Link to='/room'><Button colorScheme='blue'marginRight={'10px'}>Rooms</Button></Link>
+            
+            <Link to='/about'><Button colorScheme='blue'marginRight={'10px'}>About</Button></Link>
+            
             <Button colorScheme='blue'>Contact</Button>
           </Flex>
 
