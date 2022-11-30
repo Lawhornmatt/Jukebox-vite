@@ -5,6 +5,7 @@ import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
+/*
 import {
   Flex,
   Box,
@@ -18,6 +19,7 @@ import {
   Heading,
   useColorModeValue,
 } from '@chakra-ui/react';
+*/
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -109,6 +111,7 @@ export default Login;
 
 // Previous well stylized Login UI
 // We should use this but we'll need above's values and logic worked in
+// Note, uses a Link imported that conflicts with react-router-dom
 /* 
 export default function Login() {
   return (

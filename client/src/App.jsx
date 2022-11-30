@@ -9,7 +9,6 @@ import Login from './components/Login.jsx'
 import Homepage from './components/Homepage.jsx'
 import Room from './components/Room.jsx'
 import Nav from './components/Nav';
-import Login from './components/Login';
 import { ChakraProvider } from '@chakra-ui/react';
 
 const httpLink = createHttpLink({
