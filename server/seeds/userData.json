@@ -1,27 +1,42 @@
 [
   {
-    "name": "Fake Man",
+    "username": "Fake Man",
     "email": "fake@noEmail.com",
-    "password": "123pass"
+    "password": "123pass",
+    "preferences": "1",
+    "darkmode": false,
+    "email_vis": false
   },
   {
-    "name": "No Existo",
+    "username": "No Existo",
     "email": "not@noEmail.com",
-    "password": "234pass"
+    "password": "234pass",
+    "preferences": "1",
+    "darkmode": true,
+    "email_vis": true
   },
   {
-    "name": "Aint Here",
+    "username": "Aint Here",
     "email": "aint@noEmail.com",
-    "password": "345pass"
+    "password": "345pass",
+    "preferences": "1",
+    "darkmode": true,
+    "email_vis": false
   },
   {
-    "name": "Data Dude",
+    "username": "Data Dude",
     "email": "data@noEmail.com",
-    "password": "456pass"
+    "password": "456pass",
+    "preferences": "1",
+    "darkmode": false,
+    "email_vis": true
   },
   {
-    "name": "Filler Joe",
+    "username": "Filler Joe",
     "email": "filler@noEmail.com",
-    "password": "567pass"
+    "password": "567pass",
+    "preferences": "1",
+    "darkmode": false,
+    "email_vis": false
   }
 ]
