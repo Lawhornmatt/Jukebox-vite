@@ -16,8 +16,7 @@ const roomSchema = new Schema({
   },
   */
   current_vid: {
-    type: String,
-    required: true,
+    type: String
   },
   vid_queue: {
     type: [String]
