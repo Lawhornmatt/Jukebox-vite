@@ -20,7 +20,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
         <Router>
-          <Nav />
+          <div style={{display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw'}}>
+            <Nav />
               <Routes>
                 <Route 
                   path="/about" 
@@ -39,6 +40,7 @@ function App() {
                   element={<Login/>}
                 />
               </Routes>
+          </div>
         </Router>
     </ApolloProvider>
   )
