@@ -28,8 +28,6 @@ const resolvers = {
         { hosted_room: res.id}
       );
 
-
-
       return {
         id: res.id,
         ...res._doc

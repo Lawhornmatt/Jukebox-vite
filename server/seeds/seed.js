@@ -11,6 +11,12 @@ db.once('open', async () => {
   const userbase = await User.insertMany(userData);
   const roombase = await Room.insertMany(roomData);
 
+  for (newUser of userbase) {
+    const randoAvatar = Math.ceil(Math.random() * 9)
+    newUser.avatar = randoAvatar;
+    await newUser.save();
+  }
+
   for (newRoom of roombase) {
     // Starts at the first seeded room and adds the first user, then the second room and adds the second listed user, and so forth until no more rooms. 
     const sequenceUser = userbase[roombase.indexOf(newRoom)];
