@@ -4,9 +4,11 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import reactLogo from './assets/react.svg'
 import './CSS/App.css'
 
-import About from './pages/about.jsx'
-import Home from './pages/Home.jsx'
-import Room from './pages/Room.jsx'
+import About from './components/About.jsx'
+import Homepage from './components/Homepage.jsx'
+import Room from './components/Room.jsx'
+import Nav from './components/Nav';
+import { ChakraProvider } from '@chakra-ui/react';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -15,28 +17,26 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    
     <ApolloProvider client={client}>
-      <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-          <div className="container">
-            <Routes>
-              <Route 
-                path="/about" 
-                element={<About/>}
-              />
-              <Route 
-                path="/" 
-                element={<Home/>}
-              />
-              <Route 
-                path="/room" 
-                element={<Room/>}
-              />
-            </Routes>
-          </div>
-        </div>
-      </Router>
+      <ChakraProvider>
+        <Nav />
+        <Router>
+              <Routes>
+                <Route 
+                  path="/about" 
+                  element={<About/>}
+                />
+                <Route 
+                  path="/" 
+                  element={<Homepage/>}
+                />
+                <Route 
+                  path="/room" 
+                  element={<Room/>}
+                />
+              </Routes>
+        </Router>
+    </ChakraProvider>
     </ApolloProvider>
   )
 }
