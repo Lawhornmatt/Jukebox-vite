@@ -18,9 +18,8 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <ChakraProvider>
-        <Nav />
         <Router>
+          <Nav />
               <Routes>
                 <Route 
                   path="/about" 
@@ -36,7 +35,6 @@ function App() {
                 />
               </Routes>
         </Router>
-    </ChakraProvider>
     </ApolloProvider>
   )
 }
