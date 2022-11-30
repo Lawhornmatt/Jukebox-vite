@@ -2,25 +2,18 @@ import React from 'react';
 import { Grid, GridItem } from '@chakra-ui/react';
 import '../CSS/videoCard.css';
 
-const VideoContainer = ({ videos = [] }) => {
+const VideoContainer = ({ videos=[] }) => {
     return (
         <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-            <Grid templateColumns='repeat(5, 1fr)' gap={6} m="4px" p="4px" w="50vw" overflowX="auto" overflowY="hidden" whiteSpace="nowrap" className="video-container">
-                <GridItem w='200px' h='125px' bg='blue.500'></GridItem>
-                <GridItem w='200px' h='125px' bg='blue.500' />
-                <GridItem w='200px' h='125px' bg='blue.500' />
-                <GridItem w='200px' h='125px' bg='blue.500' />
-                <GridItem w='200px' h='125px' bg='blue.500' />
+            <Grid templateColumns={`repeat(${videos.length}, 0fr)`} gap={4} m="4px" p="4px" w="70vw" overflowX="auto" overflowY="hidden" whiteSpace="nowrap" className="video-container">
+            {videos.map((video) => (
+                <GridItem w='200px' h='150px'>
+                    <img style={{width: '300px', height: '150px', objectFit: 'contain'}} src={video.snippet.thumbnails.medium.url}></img>
+                </GridItem>
+            ))}
             </Grid>
         </div>
     )
 }
 
 export default VideoContainer;
-
-// take place of hard coded grid items
-// {videos && videos.map((video) => {
-//     <GridItem w='200px' h='100px' bg='blue.500'> {/* bg is for visual purposes; remove when thumbnail is available */}
-//         {/* video thumbnail & other properties */}
-//     </GridItem>
-// })}
