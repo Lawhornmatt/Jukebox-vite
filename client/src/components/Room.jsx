@@ -1,22 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import VideoList from './VideoList';
 import Youtube from 'react-youtube';
+import { Input, InputGroup, Button, InputRightElement } from '@chakra-ui/react';
 // const getYoutubeID = require('get-youtube-id');
 
 const Room = () => {
     const opts = {
-        height: '390',
-        width: '640',
+        height: '500',
+        width: '750',
         playerVars: {
             autoplay: 1
         }
     };
 
+    const [Id, setId] = useState('');
+
+    function queue(e) {
+        setId(e.target.parentNode.parentNode.firstChild.value);
+        e.target.parentNode.parentNode.firstChild.value = '';
+    }
+
     return(
         <>
-            <div style={{margin: '0 auto',flexGrow: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly'}}>
+            <div style={{margin: '0 auto',flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-evenly'}}>
                 <h1>Welcome to the room!</h1>
-                <Youtube videoId='2g811Eo7K8U' opts={opts} />
+                <label>Insert a YouTube video ID to queue</label>
+                <div>
+                    <InputGroup size='md'>
+                        <Input
+                            pr='4.5rem'
+                            type='text'
+                            placeholder='Enter ID'
+                        />
+                        <InputRightElement width='4.5rem' pr='5px'>
+                            <Button onClick={queue} h='1.75rem' size='sm'>
+                                Queue
+                            </Button>
+                        </InputRightElement>
+                    </InputGroup>
+                </div>
+                
+                <Youtube videoId={Id} opts={opts} />
             </div>
             <VideoList videos= {[
     {
