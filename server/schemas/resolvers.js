@@ -91,6 +91,39 @@ const resolvers = {
 
       return (await Room.deleteOne({ _id: ID })).deletedCount;
     },
+
+    addVidQueue: async (parent, { ID, ytid }) => {
+      // return await Room.updateOne(
+      //   { _id: ID },
+      //   { $push: { 'vid_queue': `${ytid}` }}
+      // ).modifiedCount;
+
+      // For WHATEVER REASON the above REFUSED to work, despite multiple updateOne() mutations working fine previously
+      // Down below is some bad practice hacked together nonesense that will result in race conditions if we try
+      // to update the same doc at the same time
+      // But it works.
+      try {
+        let theRoom = await Room.findOne({ _id: ID });
+        theRoom.vid_queue.push(ytid);
+        theRoom.save();
+        return true;
+      } catch {
+        return false;
+      }
+    },
+
+    loadNextVid: async (parent, { ID }) => {
+
+      try {
+        let theRoom = await Room.findOne({ _id: ID });
+        theRoom.current_vid = theRoom.vid_queue[0];
+        theRoom.vid_queue.shift();
+        theRoom.save();
+        return true;
+      } catch {
+        return false;
+      }
+    },
   },
 };
 

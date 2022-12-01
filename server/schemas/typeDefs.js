@@ -16,7 +16,7 @@ const typeDefs = gql`
     _id: ID!
     host_id: User
     room_name: String!
-    current_vid: String!
+    current_vid: String
     vid_queue: [String]
   }
 
@@ -43,7 +43,13 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
 
     login(email: String!, password: String!): Auth
+
+    addVidQueue(ID: ID!, ytid: String!): Boolean
+
+    loadNextVid(ID: ID!): Boolean
   }
 `;
 
 module.exports = typeDefs;
+
+// addVidQueue(ID: ID!, ytid: String!): Room

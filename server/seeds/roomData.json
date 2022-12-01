@@ -1,20 +1,21 @@
 [
   {
-    "room_name": "Room One",
-    "current_vid": "fake URL string to a YouTube vid"
+    "room_name": "Empty Queue Room",
+    "current_vid": "dQw4w9WgXcQ"
   },
   {
-    "room_name": "Room Dos",
-    "current_vid": "fake URL string to a YouTube vid",
-    "vid_queue": ["string of vids", "string of vids", "string of vids"]
+    "room_name": "Music Room",
+    "current_vid": "_F9IO9Plldc",
+    "vid_queue": ["ksvMrXfk26A", "taNwhaBQS-0", "bQx91RR3Y8o", "eeE5yITxceA" ]
   },
   {
-    "room_name": "Room Zwei",
-    "current_vid": "fake URL string to a YouTube vid",
-    "vid_queue": ["string of vids", "string of vids", "string of vids"]
+    "room_name": "Physics Room",
+    "current_vid": "XRr1kaXKBsU",
+    "vid_queue": ["Cg73j3QYRJc", "ymF1bp-qrjU", "-5wpm-gesOY", "Mv9NEXX1VHc"]
   },
   {
-    "room_name": "Room Chotyry",
-    "current_vid": "fake URL string to a YouTube vid"
+    "room_name": "Coffee Room",
+    "current_vid": "tltBHjmIUJ0",
+    "vid_queue": ["Z-iNAyu-ejo", "wSPCdAX70J8", "c6y_3KR7IV4"]
   }
 ]

@@ -24,3 +24,17 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_VID_QUEUE = gql`
+  mutation AddVidQueue($id: ID!, $ytid: String!) {
+    addVidQueue(ID: $id, ytid: $ytid)
+  }
+`;
+/* 
+  You'll want to pass in, for example:
+
+{  "id": "63882d3fbe26a4bbec684386",
+  "ytid": "dQw4w9WgXcQ"
+}
+*/
+
