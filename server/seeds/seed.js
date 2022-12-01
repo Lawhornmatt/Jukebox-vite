@@ -8,8 +8,8 @@ db.once('open', async () => {
   await User.deleteMany({});
   await Room.deleteMany({});
 
-  const userbase = await User.insertMany(userData);
-  const roombase = await Room.insertMany(roomData);
+  const userbase = await User.create(userData);
+  const roombase = await Room.create(roomData);
 
   for (newUser of userbase) {
     const randoAvatar = Math.ceil(Math.random() * 9)

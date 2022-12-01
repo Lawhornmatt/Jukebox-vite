@@ -1,4 +1,6 @@
 const { User, Room } = require('../models');
+const { AuthenticationError } = require('apollo-server-express');
+const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
@@ -10,12 +12,31 @@ const resolvers = {
     }
   },
   Mutation: {
-    /*
-    createUser: async (parent, args) => {
-      const newUser = await User.create(args);
-      return newUser;
+    
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
     },
-    */
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError('No user found with this email address');
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+      
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
+
+      return { token, user };
+    },
+    
    
     // Removed since darkmode is being saved in browser currently,
     // Kept in comment because of the interesting update with aggregation pipeline found here:

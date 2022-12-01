@@ -20,6 +20,11 @@ const typeDefs = gql`
     vid_queue: [String]
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
     users: [User]
     rooms: [Room]
@@ -29,6 +34,8 @@ const typeDefs = gql`
     createUser(name: String!, email: String!, password: String!): User
     createRoom(host_id: ID!, room_name: String!): Room
     destroyRoom(ID: ID!): Boolean
+    addUser(username: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
   }
 `;
 
