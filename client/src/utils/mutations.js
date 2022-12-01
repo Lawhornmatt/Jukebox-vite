@@ -33,8 +33,21 @@ export const ADD_VID_QUEUE = gql`
 /* 
   You'll want to pass in, for example:
 
-{  "id": "63882d3fbe26a4bbec684386",
-  "ytid": "dQw4w9WgXcQ"
+{  
+  "id": "63882d3fbe26a4bbec684386", // The id of the room document you want to change
+  "ytid": "dQw4w9WgXcQ" // The id of the YouTube vid you want to add
 }
 */
 
+export const LOAD_NEXT_VID = gql`
+  mutation loadNextVid($id: ID!) {
+    loadNextVid(ID: $id)
+  }
+`;
+/* 
+  You'll want to pass in, for example:
+
+{  
+  "id": "63882d3fbe26a4bbec684386", // The id of the room document you want to change
+}
+*/
