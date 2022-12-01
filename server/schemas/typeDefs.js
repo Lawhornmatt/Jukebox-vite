@@ -27,14 +27,21 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
+    find_user(email: String!): User
     rooms: [Room]
+    find_room(id: ID!): Room
   }
 
   type Mutation {
+
     createUser(name: String!, email: String!, password: String!): User
+
     createRoom(host_id: ID!, room_name: String!): Room
+
     destroyRoom(ID: ID!): Boolean
+
     addUser(username: String!, email: String!, password: String!): Auth
+
     login(email: String!, password: String!): Auth
   }
 `;

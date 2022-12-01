@@ -4,12 +4,23 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+
     users: async () => {
       return await User.find({}).populate('hosted_room');
     },
+
+    find_user: async (parent, { email }) => {
+      return await User.findOne({ email }).populate('hosted_room');
+    },
+
     rooms: async () => {
       return await Room.find({}).populate('host_id')
-    }
+    },
+
+    find_room: async (parent, { ID }) => {
+      return await Room.findOne({ ID }).populate('host_id');
+    },
+
   },
   Mutation: {
     
@@ -18,6 +29,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
