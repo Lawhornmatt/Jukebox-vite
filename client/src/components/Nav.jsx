@@ -45,8 +45,8 @@ export default function Nav() {
             <Link to='/room'><Button colorScheme='blue'marginRight={'10px'}>Rooms</Button></Link>
             
             <Link to='/about'><Button colorScheme='blue'marginRight={'10px'}>About</Button></Link>
-            
-            <Button colorScheme='blue'>Contact</Button>
+
+            <Link to='/contact'><Button colorScheme='blue'>Contact</Button></Link>
           </Flex>
 
           <Flex alignItems={'center'}>

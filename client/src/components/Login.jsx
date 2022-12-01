@@ -14,6 +14,7 @@ import {
   Button,
   Heading,
   useColorModeValue,
+  Text,
 } from '@chakra-ui/react';
 
 
@@ -105,6 +106,14 @@ const Login = (props) => {
                 Sign in
               </Button>
             </Stack>
+
+            <Stack pt={6}>
+                <Text align={'center'}>
+                Don't have an account?
+                <Link to='/signup' color={'blue.400'}> Signup here!</Link>
+                </Text>
+            </Stack>  
+
                 </form>
               )}
               {error && (

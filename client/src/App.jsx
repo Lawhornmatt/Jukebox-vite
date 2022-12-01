@@ -9,7 +9,10 @@ import Login from './components/Login.jsx'
 import Homepage from './components/Homepage.jsx'
 import Room from './components/Room.jsx'
 import Nav from './components/Nav';
+import Contact from './components/Contact.jsx'
+
 import { ChakraProvider } from '@chakra-ui/react';
+import Signup from './components/Signup';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -54,6 +57,14 @@ function App() {
                 <Route 
                   path="/login" 
                   element={<Login/>}
+                />
+                <Route 
+                  path="/contact" 
+                  element={<Contact/>}
+                />
+                <Route 
+                  path="/signup" 
+                  element={<Signup/>}
                 />
               </Routes>
           </div>
