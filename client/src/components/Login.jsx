@@ -53,12 +53,12 @@ const Login = (props) => {
       password: '',
     });
   };
-  return (
-    <Flex
-    minH={'100vh'}
-    align={'center'}
-    justify={'center'}
-    bg={useColorModeValue('gray.50', 'gray.800')}>
+return (
+  <Flex
+  minH={'100vh'}
+  align={'center'}
+  justify={'center'}
+  bg={useColorModeValue('gray.50', 'gray.800')}>
 
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
 
@@ -66,11 +66,11 @@ const Login = (props) => {
           <Heading fontSize={'4xl'}>Sign in to your account</Heading>
         </Stack>
 
-          <Box
-            rounded={'lg'}
-            bg={useColorModeValue('white', 'gray.700')}
-            boxShadow={'lg'}
-            p={8}>
+        <Box
+          rounded={'lg'}
+          bg={useColorModeValue('white', 'gray.700')}
+          boxShadow={'lg'}
+          p={8}>
           <div className="card-body">
             {data ? (
               <p>
@@ -80,21 +80,21 @@ const Login = (props) => {
             ) : (
                 <form spacing={4} onSubmit={handleFormSubmit}>
 
-                  <FormLabel>Email address</FormLabel>
-                  <Input 
+              <FormLabel>Email address</FormLabel>
+              <Input 
                   name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
+                type="email"
+                value={formState.email}
+                onChange={handleChange} 
+              />
 
-                  <FormLabel>Password</FormLabel>
-                  <Input 
+              <FormLabel>Password</FormLabel>
+              <Input 
                   name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
+                type="password"
+                value={formState.password}
+                onChange={handleChange} 
+              />
 
             <Stack spacing={10}>
               <Button
@@ -102,8 +102,8 @@ const Login = (props) => {
                 color={'white'}
                 _hover={{
                   bg: 'blue.500',
-                      }}
-                      type="submit">
+                }}
+                type="submit">
                 Sign in
               </Button>
             </Stack>
