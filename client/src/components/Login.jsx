@@ -24,7 +24,7 @@ import {
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
-  const { users, loginUser, logoutUser } = useCar();  // Accesses the UserContext
+  const { users, loginUser, logoutUser } = accessUser();  // Accesses the UserContext
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -46,6 +46,7 @@ const Login = (props) => {
       });
       
       Auth.login(data.login.token);
+      {loginUser(data)};
     } catch (e) {
       console.error(e);
     }
