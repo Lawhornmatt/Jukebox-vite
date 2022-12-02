@@ -10,6 +10,7 @@ import Homepage from './components/Homepage.jsx'
 import Room from './components/Room.jsx'
 import Nav from './components/Nav';
 import Contact from './components/Contact.jsx'
+import Roomlist from './components/Roomlist.jsx'
 
 import { ChakraProvider } from '@chakra-ui/react';
 import Signup from './components/Signup';
@@ -67,6 +68,10 @@ function App() {
                 <Route 
                   path="/signup" 
                   element={<Signup/>}
+                />
+                <Route 
+                  path="/room-list" 
+                  element={<Roomlist/>}
                 />
               </Routes>
           </div>
