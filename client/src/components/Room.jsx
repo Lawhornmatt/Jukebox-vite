@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import VideoList from './VideoList';
 import Youtube from 'react-youtube';
 import { Input, InputGroup, Button, InputRightElement } from '@chakra-ui/react';
-// const getYoutubeID = require('get-youtube-id');
 import { useQuery } from '@apollo/client';
 import { FIND_ROOM } from '../utils/queries';
 import { extractYTid } from '../utils/extract';
@@ -70,7 +69,6 @@ const Room = () => {
         <>
             <div style={{margin: '0 auto',flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-evenly'}}>
                 <h1>Welcome to the room!</h1>
-                <button onClick={() => console.log(state.videoCollection[0])}>Log state to console</button>
                 <label>Insert a YouTube video ID to queue</label>
                 <div>
                     <InputGroup size='md'>
