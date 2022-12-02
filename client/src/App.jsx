@@ -13,6 +13,7 @@ import Contact from './components/Contact.jsx'
 
 import { ChakraProvider } from '@chakra-ui/react';
 import Signup from './components/Signup';
+import UserProvider from './utils/UserContext';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -38,6 +39,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <UserProvider>
         <Router>
           <div style={{display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw'}}>
             <Nav />
@@ -69,6 +71,7 @@ function App() {
               </Routes>
           </div>
         </Router>
+      </UserProvider>
     </ApolloProvider>
   )
 }
