@@ -1,19 +1,25 @@
 import React, { useEffect, useRef, useState  } from "react";
 import { Avatar, Flex, Text, Box, Divider } from "@chakra-ui/react";
 import Footer from "./ChatFooter"
+import { useMutation, useQuery} from '@apollo/client';
+import { FIND_ROOM } from '../utils/queries';
 
 const Chat = () =>
 {
+  const findRoomId = "638e6065a877b7225959ba47";
+
+
+    const { loading, data } = useQuery(FIND_ROOM, {variables: {findRoomId}});
+      
+
     const [messages, setMessages] = useState([
-        { from: "computer", text: "Hi, My Name is HoneyChat" },
-        { from: "me", text: "Hey there" },
-        { from: "me", text: "Myself Ferin Patel" },
-        {
-          from: "computer",
-          text: "Nice to meet you. You can send me message and i'll reply you with same message.",
-        },
+      { from: "computer", text: "Welcome to the chat!" },
+      { from: "computer", text: "Try playing a video!" }
+
+
       ]);
       
+
       const [inputMessage, setInputMessage] = useState("");
 
       const handleSendMessage = () => {
@@ -32,7 +38,7 @@ const Chat = () =>
         return <div ref={elementRef} />;
       };
       return (
-        <Box position="absolute" right="0" top="100px" h="60%" overflowY="scroll" flexDirection="column" p="3">
+        <Box className="rambo" position="absolute" right="0" top="100px" h="60%" overflowY="scroll" flexDirection="column" p="3">
           {messages.map((item, index) => {
             if (item.from === "me") {
               return (
@@ -52,11 +58,7 @@ const Chat = () =>
             } else {
               return (
                 <Flex key={index} w="100%">
-                  <Avatar
-                    name="Computer"
-                    src="https://avataaars.io/?avatarStyle=Transparent&topType=LongHairStraight&accessoriesType=Blank&hairColor=BrownDark&facialHairType=Blank&clotheType=BlazerShirt&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
-                    bg="blue.300"
-                  ></Avatar>
+
                   <Flex
                     bg="gray.100"
                     color="black"
