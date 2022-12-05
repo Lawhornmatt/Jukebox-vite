@@ -11,9 +11,11 @@ import Room from './components/Room.jsx'
 import Nav from './components/Nav';
 import Contact from './components/Contact.jsx'
 import Profile from './components/Profile.jsx'
+import Roomlist from './components/Roomlist.jsx'
 
 import { ChakraProvider } from '@chakra-ui/react';
 import Signup from './components/Signup';
+import UserProvider from './utils/UserContext';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -39,6 +41,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
+      <UserProvider>
         <Router>
           <div style={{display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw'}}>
             <Nav />
@@ -71,9 +74,14 @@ function App() {
                   path="/profile" 
                   element={<Profile/>}
                 />
+                <Route 
+                  path="/room-list" 
+                  element={<Roomlist/>}
+                />
               </Routes>
           </div>
         </Router>
+      </UserProvider>
     </ApolloProvider>
   )
 }
