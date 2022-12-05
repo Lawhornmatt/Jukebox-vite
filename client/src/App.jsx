@@ -46,36 +46,36 @@ function App() {
         <Router>
           <div style={{display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw'}}>
             <Nav />
-              <Routes>
-                <Route 
-                  path="/about" 
-                  element={<About/>}
-                />
-                <Route 
-                  path="/" 
-                  element={<Homepage/>}
-                />
-                <Route 
-                  path="/room" 
-                  element={<Room/>}
-                />
-                <Route 
-                  path="/login" 
-                  element={<Login/>}
-                />
-                <Route 
-                  path="/contact" 
-                  element={<Contact/>}
-                />
-                <Route 
-                  path="/signup" 
-                  element={<Signup/>}
-                />
-                <Route 
-                  path="/room-list" 
-                  element={<Roomlist/>}
-                />
-              </Routes>
+            <Routes>
+              <Route 
+                path="/about" 
+                element={<About/>}
+              />
+              <Route 
+                path="/" 
+                element={<Homepage/>}
+              />
+              <Route 
+                path="/room" 
+                element={<Room/>}
+              />
+              <Route 
+                path="/login" 
+                element={<Login/>}
+              />
+              <Route 
+                path="/contact" 
+                element={<Contact/>}
+              />
+              <Route 
+                path="/signup" 
+                element={<Signup/>}
+              />
+              <Route 
+                path="/room-list" 
+                element={<Roomlist/>}
+              />
+            </Routes>
           </div>
         </Router>
       </UserProvider>
