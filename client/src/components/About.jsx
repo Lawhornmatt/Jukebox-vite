@@ -3,19 +3,7 @@ import ReactDOM from 'react-dom';
 import { Heading, Highlight, Image, Box, Text, Flex, useColorModeValue,Button} from '@chakra-ui/react';
 import { UserContext } from '../utils/UserContext';
 
-// import { accessUserContext } from '../utils/UserContext';
-// import { UserContext } from '../utils/UserContext';
-
-// Import our reducer
-// import { reducer } from '../utils/reducers';
-
-// Import our action
-// import { LOGIN_USER, LOGOUT_USER } from '../utils/actions';
-
-
 const About = () => {
-    // const initialUser = accessUserContext();
-    // const [state, dispatch] = useReducer(reducer, initialUser);
 
     const [ { user }, dispatch ] = useContext(UserContext);
 
