@@ -3,31 +3,29 @@ import React, { useState, useContext } from 'react';
 
 // Create our theme context using React.CreateContext()
 export const UserContext = React.createContext();
+export const UserUpdateContext = React.createContext();
 
 // Create a custom hook that allows easy access to our ThemeContext values
 export const accessUser = () => useContext(UserContext);
+export const updateUser = () => useContext(UserUpdateContext);
 
 // Creating our theme provider. Accepts an argument of "props", here we plucking off the "children" object.
 export default function UserProvider({ children }) {
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState('No User Logged In');
 
-  const loginUser = (user) => {
-    // const newID = createId(users);
-    const newUser = { ...user }; // This needs to be passed through when a user logins in
-
-    setUsers([newUser]);
-  };
-
-  const logoutUser = (id) => {
-    // const updatedCarList = users.filter((user) => user.id !== id);
-    setUsers([]);
-  };
+  function changeUser(e, userData) {
+    console.log(e);
+    console.log(userData);
+    setUser('CLicked');
+  }
 
   // The provider component will wrap all other components inside of it that need access to our global state
   return (
     // Dark theme and toggle theme are getting provided to the child components
-    <UserContext.Provider value={{ users, loginUser, logoutUser }}>
-      {children}
+    <UserContext.Provider value={user}>
+      <UserUpdateContext.Provider value={changeUser}>
+        {children}
+      </UserUpdateContext.Provider>
     </UserContext.Provider>
   );
 }
