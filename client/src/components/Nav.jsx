@@ -19,7 +19,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 
 // User Context
-import { accessUser } from '../utils/UserContext';
+// import { accessUser } from '../utils/UserContext';
 
 // const NavLink = ({ children }: { children: ReactNode }) => (
 //   <Link
@@ -38,7 +38,7 @@ import { accessUser } from '../utils/UserContext';
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { users, loginUser, logoutUser } = accessUser();
+  // const { users, loginUser, logoutUser } = accessUser();
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
