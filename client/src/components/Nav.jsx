@@ -18,6 +18,9 @@ import {
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 
+// User Context
+import { accessUser } from '../utils/UserContext';
+
 // const NavLink = ({ children }: { children: ReactNode }) => (
 //   <Link
 //     px={2}
@@ -35,6 +38,7 @@ import { Link } from 'react-router-dom';
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { users, loginUser, logoutUser } = accessUser();
   return (
     <>
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
@@ -47,6 +51,8 @@ export default function Nav() {
             <Link to='/about'><Button colorScheme='blue'marginRight={'10px'}>About</Button></Link>
 
             <Link to='/contact'><Button colorScheme='blue'>Contact</Button></Link>
+
+            <Link to='/login'><Button colorScheme='blue'>Temp LogIn Btn</Button></Link>
           </Flex>
 
           <Flex alignItems={'center'}>
