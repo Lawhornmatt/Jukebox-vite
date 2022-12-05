@@ -81,7 +81,7 @@ export default function Nav() {
                   </Center>
                   <br />
                   <MenuDivider />
-                  <MenuItem>Your Room</MenuItem>
+                  <Link to='/profile'><MenuItem>Profile</MenuItem></Link>
                   <MenuItem>Account Settings</MenuItem>
                   <MenuItem>Logout</MenuItem>
                 </MenuList>

@@ -4,6 +4,7 @@ import NET from 'vanta/dist/vanta.net.min'
 import InitialFocus from './Modal';
 
 
+
 export default function Homepage (){
     const [vantaEffect, setVantaEffect] = useState(0)
     const myRef = useRef(null)

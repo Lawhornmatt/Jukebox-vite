@@ -17,6 +17,7 @@ import {
         
 
   } from '@chakra-ui/react'
+  import { Link } from 'react-router-dom';
 
 
 export default function InitialFocus() {
@@ -28,9 +29,11 @@ export default function InitialFocus() {
     return (
       <>
         <Button onClick={onOpen} colorScheme='yellow'>Click Here to Create a Room</Button>
+        <Link to='/signup'>
         <Button ml={4} ref={finalRef}>
-          I'll receive focus on close
+          Create an Account
         </Button>
+        </Link>
   
         <Modal
           initialFocusRef={initialRef}
