@@ -17,6 +17,8 @@ import {
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 
+import { avatarObj } from '../utils/avatar';
+
 import { UserContext } from '../utils/UserContext';
 
 export default function Nav() {
@@ -78,7 +80,7 @@ export default function Nav() {
                   minW={0}>
                   <Avatar
                     size={'sm'}
-                    src={`../assets/${user.avatar}.jpg`}
+                    src={avatarObj[`${user.avatar}`]}
                   />
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -86,7 +88,7 @@ export default function Nav() {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={`../assets/${user.avatar}.jpg`}
+                      src={avatarObj[`${user.avatar}`]}
                     />
                   </Center>
                   <br />
@@ -112,7 +114,7 @@ export default function Nav() {
                   minW={0}>
                   <Avatar
                     size={'sm'}
-                    src={'../assets/empty.svg'}
+                    src={avatarObj.empty}
                   /> 
                 </MenuButton>
                 <MenuList alignItems={'center'}>
@@ -120,7 +122,7 @@ export default function Nav() {
                   <Center>
                     <Avatar
                       size={'2xl'}
-                      src={'../assets/empty.svg'}
+                      src={avatarObj.empty}
                     /> 
                   </Center>
                   <br />
