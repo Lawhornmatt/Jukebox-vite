@@ -36,7 +36,7 @@ http {
 		server_name _;
 		keepalive_timeout 5;
 
-		location /build/ {
+		location /build {
 			# Uncomment this if statement to force SSL/redirect http -> https
 			# if ($http_x_forwarded_proto != "https") {
 			#   return 301 https://$host$request_uri;
