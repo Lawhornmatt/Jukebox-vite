@@ -16,6 +16,23 @@ export const FIND_USER = gql`
   }
 `;
 
+export const FIND_USERNAME = gql`
+  query Find_username($username: String!) {
+    find_username(username: $username) {
+      _id
+      avatar
+      username
+      hosted_room {
+        _id
+        room_name
+        current_vid
+        vid_queue
+      }
+    }
+  }
+`;
+
+
 export const FIND_ROOM = gql`
   query Find_room($findRoomId: ID!) {
     find_room(id: $findRoomId) {

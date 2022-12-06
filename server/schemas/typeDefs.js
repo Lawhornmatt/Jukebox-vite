@@ -29,6 +29,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     find_user(email: String!): User
+    find_username(username: String!): User
     rooms: [Room]
     find_room(id: ID!): Room
     

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState  } from "react";
-import { Avatar, Flex, Text, Box, Divider } from "@chakra-ui/react";
+import { Flex, Text, Box, Divider } from "@chakra-ui/react";
 import Footer from "./ChatFooter"
-import { useMutation, useQuery} from '@apollo/client';
+import { useQuery} from '@apollo/client';
 import { FIND_ROOM } from '../utils/queries';
 
 const Chat = () =>

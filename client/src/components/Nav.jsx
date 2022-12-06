@@ -53,10 +53,13 @@ export default function Nav() {
       <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <Flex alignItems={'center'} padding={'5px'}>
-            <Link to='/'><Box paddingRight={'15px'}>JukeBox</Box></Link>
 
-            <Link to='/room'><Button colorScheme='blue'marginRight={'10px'}>Rooms</Button></Link>
-            
+            <Link to='/'><Box paddingRight={'15px'}>JukeBox</Box></Link>
+            {user ? (
+            <Link to='/room-list'><Button colorScheme='blue'marginRight={'10px'}>Rooms</Button></Link>
+            ):(
+            <Link to='/login'><Button colorScheme='blue'marginRight={'10px'}>Rooms</Button></Link>
+            )}
             <Link to='/about'><Button colorScheme='blue'marginRight={'10px'}>About</Button></Link>
 
             <Link to='/contact'><Button colorScheme='blue'>Contact</Button></Link>
@@ -96,7 +99,7 @@ export default function Nav() {
                   <br />
                   <MenuDivider />
                   {/* <MenuItem>Your Room</MenuItem> */}
-                  {/* <MenuItem>Account Settings</MenuItem> */}
+                  <Link to='/profile'><MenuItem>My Profile</MenuItem></Link>
                   {/* <MenuItem onClick={handleLogIn}>Login</MenuItem> */}
                   {/* <br/> */}
                   <MenuItem onClick={handleLogOut}>Log Out</MenuItem>

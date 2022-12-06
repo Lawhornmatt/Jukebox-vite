@@ -22,47 +22,42 @@
 
 * [License](#license)
 
-<a name="description"></a>
-
 ## DESCRIPTION:
 
-This is the ReadMe for Matty Lawhorn, Thomas Le, Juan Gonzales, Andrew Johnson's project titled: Project3-Jukebox   
+This is the ReadMe for Matty Lawhorn, Thomas Le, Juan Gonzales, Andrew Johnson's project #3 titled: Jukebox   
 
-This is the project 3, titled JUKEBOX, by the group JUKEBOX PPL for the UT Austin Full-Stack Web Development Fall 2022 Bootcamp. This app uses the MERN stack to provide a reactive and persistant experience. It has React.js on the front end, and Express with Apollo Client and GraphQL attached to a MongoDB database with Node.js on the backend. With this app folks can join a lobby with their friends and hang out and share activities, like for example, wathcing YouTube movies.  
+This is the final group project for the UT Austin Full-Stack Web Development Fall 2022 Bootcamp. The challenge was to use a MERN stack to provide a reactive and persistant web app.  
 
-<img src='INSERT PATH TO SCREENSHOT HERE' alt='A screenshot of Project3-Jukebox'/>
+After making an account and signing in, users can either join any public lobby or create their own. In that lobby, users can add YouTube videos to a queue which everyone can watch. 
 
-<a name="tools"></a>
+<img src='./client/public/jbscrnsht.png' alt='A screenshot of Project3-Jukebox'/>
 
 ## TOOLS:
 
-This project uses a React app created with Vite. The app runs in a MERN stack. Our MongoDB database is used with Apollo Client and GraphQL.
+Our app has React.js (built in a development environment by Vite) on the front end, has Express with Apollo Client and GraphQL attached to a MongoDB database, and uses Node.js on the backend. 
 
-<a name="installation"></a>
+* React
+* Vite
+* MERN stack
+* MongoDB
+* Apollo Client and GraphQL
+* Express
 
 ## INSTALLATION:
 
 Go to our Heroku Deployment (coming soon)  
 
-<a name="usage"></a>
-
 ## USAGE:
 
 Join any public lobby or make an account to make your own.  
-
-<a name="contribution"></a>
 
 ## CONTRIBUTION:
 
 Sorry, this project is privately maintained.  
 
-<a name="testing"></a>
-
 ## TESTING:
 
 Thank you, but no testing is needed at this time.  
-
-<a name="questions"></a>
 
 ## QUESTIONS:
 
@@ -70,8 +65,6 @@ If you have any questions,
 click on our name's below to find our GitHub profiles.  
 
 or send us an email me here: fake@notreal.com  
-
-<a name="credit"></a>
 
 ## CREDIT:
 
@@ -83,8 +76,6 @@ This project was made in 2022 by
   <a target="_blank" rel="noopener noreferrer" href="https://github.com/Thomasple13">Thomas Le</a>   
 
 Special Thanks to:  
-
-<a name="license"></a>
 
 ## LICENSE:
 
