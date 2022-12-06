@@ -12,7 +12,6 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { LIST_ROOMS } from "../utils/queries";
-import NewRoom from "./Modal";
 import { CREATE_ROOM } from "../utils/mutations";
 import { useMutation, useQuery } from "@apollo/client";
 
@@ -92,5 +91,6 @@ export default function Listrooms() {
         </DrawerOverlay>
       </Drawer>
     </div>
+    
   );
 }
