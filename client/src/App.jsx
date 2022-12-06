@@ -27,7 +27,7 @@ let httpLink = createHttpLink({
 });
 
 if (process.env.NODE_ENV == 'production') {
-  httpLink = createHttpLink({ uri: 'https://jukebox-project3.herokuapp.com' });
+  httpLink = createHttpLink({ uri: 'https://jukebox-project3.herokuapp.com/' });
 };
 
 const authLink = setContext((_, { headers }) => {
