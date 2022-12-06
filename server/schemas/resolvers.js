@@ -31,7 +31,7 @@ const resolvers = {
     },
 
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const user = await User.findOne({ email }).populate('hosted_room');
 
       if (!user) {
         throw new AuthenticationError('No user found with this email address');
