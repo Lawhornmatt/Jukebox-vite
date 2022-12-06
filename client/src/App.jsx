@@ -17,18 +17,11 @@ import OtherProfile from './components/OtherProfile.jsx'
 import { ChakraProvider } from '@chakra-ui/react';
 import Signup from './components/Signup';
 
-
 import UserProvider from './utils/UserContext';
-
-// const port = Number.parseInt(process.env.PORT) || 3001;
 
 const httpLink = createHttpLink({
   uri: '/graphql'
 });
-
-// if (process.env.NODE_ENV == 'production') {
-//   httpLink = createHttpLink({ uri: 'https://jukebox-project3.herokuapp.com/graphql' });
-// };
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
