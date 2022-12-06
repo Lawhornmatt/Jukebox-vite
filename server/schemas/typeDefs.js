@@ -18,6 +18,7 @@ const typeDefs = gql`
     room_name: String!
     current_vid: String
     vid_queue: [String]
+    messages: [String]
   }
 
   type Auth {
@@ -30,6 +31,7 @@ const typeDefs = gql`
     find_user(email: String!): User
     rooms: [Room]
     find_room(id: ID!): Room
+    
   }
 
   type Mutation {

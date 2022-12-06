@@ -21,6 +21,9 @@ const roomSchema = new Schema({
   vid_queue: {
     type: [String]
   },
+  messages: {
+    type: [String]
+  },
 });
 
 const Room = model('Room', roomSchema);

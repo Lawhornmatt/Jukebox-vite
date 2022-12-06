@@ -7,6 +7,17 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
+        avatar
+        email
+        password
+        darkmode
+        email_vis
+        hosted_room {
+          _id
+          room_name
+          current_vid
+          vid_queue
+        }
       }
     }
   }
@@ -30,8 +41,7 @@ export const ADD_VID_QUEUE = gql`
     addVidQueue(ID: $id, ytid: $ytid)
   }
 `;
-/* 
-  You'll want to pass in, for example:
+/*  You'll want to pass in, for example:
 
 {  
   "id": "63882d3fbe26a4bbec684386", // The id of the room document you want to change
@@ -44,10 +54,24 @@ export const LOAD_NEXT_VID = gql`
     loadNextVid(ID: $id)
   }
 `;
-/* 
-  You'll want to pass in, for example:
+/*  You'll want to pass in, for example:
 
 {  
   "id": "63882d3fbe26a4bbec684386", // The id of the room document you want to change
+}
+*/
+
+export const CREATE_ROOM = gql`
+  mutation createRoom($hostId: ID!, $roomName: String!) {
+    createRoom(host_id: $hostId, room_name: $roomName) {
+      room_name
+    }
+  }
+`;
+/*  You'll want to pass in, for example:
+
+{  
+  "hostId": "63882622cbd1ebaa7be485c4",  // The id of the user making the room. This will be provided by the UserContext
+  "roomName": "Joe's room" // A name of the room typed in by the user
 }
 */

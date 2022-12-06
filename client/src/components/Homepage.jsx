@@ -1,9 +1,14 @@
 import React, {useState, useEffect, useRef} from 'react'
 import {Image, Box, Text, Flex, useColorModeValue,Button} from '@chakra-ui/react'
 import NET from 'vanta/dist/vanta.net.min'
+import InitialFocus from './Modal';
+
+// User Context
+//import { accessUser } from '../utils/UserContext';
 
 
 export default function Homepage (){
+    //const { users, loginUser, logoutUser } = accessUser();  // Accesses the UserContext
     const [vantaEffect, setVantaEffect] = useState(0)
     const myRef = useRef(null)
     const color = useColorModeValue('blue', 'black')
@@ -33,7 +38,7 @@ export default function Homepage (){
                 <Flex background={colorTitle} fontSize={{ base: '5xl', sm: '6xl', md: '7xl' }}  borderRadius="15px" justifyContent="center">
                     <Text>JukeBox</Text>
                 </Flex>
-                <Button colorScheme='yellow'>Click Here to Create a Room</Button>
+                <InitialFocus></InitialFocus>
             </Box>
         </Box>
     )
