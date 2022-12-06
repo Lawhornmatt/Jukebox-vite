@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import VideoList from './VideoList';
 import Youtube from 'react-youtube';
 import { Input, InputGroup, Button, InputRightElement } from '@chakra-ui/react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 import { FIND_ROOM } from '../utils/queries';
+import { ADD_VID_QUEUE } from '../utils/mutations';
 import { extractYTid } from '../utils/extract';
 import { useImmerReducer } from 'use-immer';
 
@@ -22,8 +23,9 @@ const initialState = {
 
 const Room = () => {
     const { data: queryData } = useQuery(FIND_ROOM, {
-        variables: { findRoomId: '6388e0bc4775de5124495f0d' }
+        variables: { findRoomId: '6388e0bc4775de5124495f0e' }
     });
+    const [addVidQueue, { error }] = useMutation(ADD_VID_QUEUE);
     const [Id, setId] = useState('');
     const [state, dispatch] = useImmerReducer(ourReducer, initialState);
     
@@ -34,7 +36,8 @@ const Room = () => {
         async function go() {
             
             try {
-                console.log('queryData', queryData.find_room.vid_queue);
+                console.log('queryData', queryData);
+                setId(queryData.find_room.current_vid);
                 const ids = queryData.find_room.vid_queue.join(',')
                 const data = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${ids}&key=AIzaSyB93EpyzcT4xY7BIowr-YKv7arfLc6qfoA`, { signal: reqController.signal });
                 const jsonData = await data.json();
@@ -54,14 +57,18 @@ const Room = () => {
         height: '500',
         width: '750',
         playerVars: {
-            autoplay: 1
+            autoplay: 1,
+            mute: 1
         }
     };
 
     
 
     function queue(e) {
-        setId(e.target.parentNode.parentNode.firstChild.value);
+        const { data } = addVidQueue({
+            variables: { id: '6388e0bc4775de5124495f0e', ytid: e.target.parentNode.parentNode.firstChild.value}
+        });
+        dispatch({ type: 'addToCollection', value: e.target.parentNode.parentNode.firstChild.value})
         e.target.parentNode.parentNode.firstChild.value = '';
     }
 
@@ -69,6 +76,7 @@ const Room = () => {
         <>
             <div style={{margin: '0 auto',flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-evenly'}}>
                 <h1>Welcome to the room!</h1>
+                <button onClick={() => console.log(state)}>click to view state</button>
                 <label>Insert a YouTube video ID to queue</label>
                 <div>
                     <InputGroup size='md'>
