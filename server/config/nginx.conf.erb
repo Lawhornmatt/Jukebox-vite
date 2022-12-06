@@ -32,8 +32,8 @@ http {
 	}
 
 	server {
-		listen <%= ENV["PORT"] %>;
-		server_name _;
+		listen <%= ENV[process.env.PORT] %>;
+		server_name localhost;
 		keepalive_timeout 5;
 
 		location /build {
