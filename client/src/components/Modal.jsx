@@ -1,4 +1,5 @@
 import React from 'react';
+import { useMutation } from '@apollo/client';
 import {
     Modal,
     ModalOverlay,
@@ -15,17 +16,39 @@ import {
     FormHelperText,
     Input,
 
-
   } from '@chakra-ui/react'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { CREATE_ROOM } from '../utils/mutations';
 
 
-export default function InitialFocus() {
+
+  const NewRoom = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const [formState, setFormState] = useState({
+      hostId: "63882622cbd1ebaa7be485c4",
+      room_name: '',
+    });
+    const [roomName, setRoomName] = useState('')
+    const [createRoom, {error, data}] = useMutation(CREATE_ROOM)
 
     const initialRef = React.useRef(null)
     const finalRef = React.useRef(null)
 
+    const handleFormSubmit = async (event) => {
+      event.preventDefault();
+      console.log(roomName);
+  
+      try {
+        const { data } = await createRoom({
+          variables: { roomName },
+        })
+        console.log(data)
+      }catch (e) {
+        console.error(e)
+      }
+    }
+      
     return (
       <>
         <Button onClick={onOpen} colorScheme='yellow'>Click Here to Create a Room</Button>
@@ -43,22 +66,20 @@ export default function InitialFocus() {
         >
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Create your account</ModalHeader>
+            <ModalHeader>Create a New Room</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
               <FormControl>
-                <FormLabel>First name</FormLabel>
-                <Input ref={initialRef} placeholder='First name' />
-              </FormControl>
-  
-              <FormControl mt={4}>
-                <FormLabel>Last name</FormLabel>
-                <Input placeholder='Last name' />
+                <FormLabel>Room Name</FormLabel>
+                <Input 
+                  ref={initialRef} placeholder='' 
+                  onChange={e => setRoomName(e.target.value)}
+                />
               </FormControl>
             </ModalBody>
   
             <ModalFooter>
-              <Button colorScheme='blue' mr={3}>
+              <Button colorScheme='blue' mr={3} onClick={handleFormSubmit}>
                 Save
               </Button>
               <Button onClick={onClose}>Cancel</Button>
@@ -68,3 +89,5 @@ export default function InitialFocus() {
       </>
     )
   }
+
+export default NewRoom
