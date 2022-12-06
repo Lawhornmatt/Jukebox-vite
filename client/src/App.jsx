@@ -20,10 +20,10 @@ import Signup from './components/Signup';
 
 import UserProvider from './utils/UserContext';
 
-// const PORT = process.env.PORT || 3001;
+const port = Number.parseInt(process.env.NODE_ENV) || 3001;
 
 const httpLink = createHttpLink({
-  uri: `http://localhost:3001/graphql`,
+  uri: `http://localhost:${port}/graphql`,
 });
 
 const authLink = setContext((_, { headers }) => {
