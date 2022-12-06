@@ -25,7 +25,8 @@ export default function Nav() {
 
   const [ { user }, dispatch ] = useContext(UserContext);
 
-  function handleLogIn(e) {
+  /* // Just injects fake login data into the global store for debugging
+  function fakeLogIn(e) {
     dispatch({
       type: 'LOGIN_USER',
       payload: { data: {
@@ -38,6 +39,7 @@ export default function Nav() {
       }}
     });
   }
+  */
 
   function handleLogOut(e) {
     dispatch({
@@ -58,8 +60,6 @@ export default function Nav() {
             <Link to='/about'><Button colorScheme='blue'marginRight={'10px'}>About</Button></Link>
 
             <Link to='/contact'><Button colorScheme='blue'>Contact</Button></Link>
-
-            {/* <Link to='/login'><Button colorScheme='blue'>Temp LogIn Btn</Button></Link> */}
           </Flex>
 
           <Flex alignItems={'center'}>
@@ -132,10 +132,7 @@ export default function Nav() {
                   {/* <MenuItem>Your Room</MenuItem> */}
                   {/* <MenuItem>Account Settings</MenuItem> */}
 
-                  {/* <Link to='/login'><Button>Log In</Button></Link> */}
-                  <MenuItem onClick={handleLogIn}>Log In</MenuItem>
-
-                  {/* <MenuItem onClick={handleLogOut}>Log Out</MenuItem> */}
+                  <Link to='/login'><Button>Log In</Button></Link>
                 </MenuList>
                 </Menu>
                 )}
