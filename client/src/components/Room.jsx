@@ -4,7 +4,7 @@ import Youtube from 'react-youtube';
 import { Input, InputGroup, Button, InputRightElement } from '@chakra-ui/react';
 import { useQuery, useMutation } from '@apollo/client';
 import Chat from './Chat';
-import { FIND_ROOM } from '../utils/queries';
+import { FIND_ROOM, LIST_ROOMS } from '../utils/queries';
 import { ADD_VID_QUEUE, LOAD_NEXT_VID } from '../utils/mutations';
 import { extractYTid } from '../utils/extract';
 import { useImmerReducer } from 'use-immer';
@@ -26,8 +26,10 @@ const initialState = {
 };
 
 const Room = () => {
+    const { data: allRooms } = useQuery(LIST_ROOMS);
+    const rooms = allRooms?.rooms[1]._id || '';
     const { loading, data: dataa } = useQuery(FIND_ROOM, {
-        variables: { findRoomId: '638f7bb860bb4e98fba80087' }
+        variables: { findRoomId: rooms }
     });
     const queryData = dataa?.find_room || [];
     const [addVidQueue, { error }] = useMutation(ADD_VID_QUEUE);
@@ -42,7 +44,7 @@ const Room = () => {
             try {
               let thisData;
               if(thisData != queryData) {
-                  const ids = queryData.vid_queue.join(',');
+                  const ids = await queryData.vid_queue.join(',');
                   const data = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${ids}&key=AIzaSyB93EpyzcT4xY7BIowr-YKv7arfLc6qfoA`, { signal: reqController.signal });
                   const jsonData = await data.json();
                   dispatch({ type: 'addToCollection', value: jsonData.items });
@@ -86,7 +88,6 @@ const Room = () => {
         const { data } = addVidQueue({
             variables: { id: '638f7bb860bb4e98fba80087', ytid: e.target.parentNode.parentNode.firstChild.value}
         });
-        queryData.vid_queue.push(e.target.parentNode.parentNode.firstChild.value);
         e.target.parentNode.parentNode.firstChild.value = '';
     }
 
