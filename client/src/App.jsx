@@ -22,9 +22,13 @@ import UserProvider from './utils/UserContext';
 
 // const port = Number.parseInt(process.env.PORT) || 3001;
 
-const httpLink = createHttpLink({
-  uri: `http://localhost:3001/graphql`,
+let httpLink = createHttpLink({
+  uri: 'http://localhost:3001/graphql'
 });
+
+if (process.env.NOD_ENV == 'production') {
+  httpLink = createHttpLink({ uri: 'https://jukebox-project3.herokuapp.com' });
+};
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
