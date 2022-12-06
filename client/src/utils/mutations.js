@@ -31,6 +31,17 @@ export const ADD_USER = gql`
       user {
         _id
         username
+        avatar
+        email
+        password
+        darkmode
+        email_vis
+        hosted_room {
+          _id
+          room_name
+          current_vid
+          vid_queue
+        }
       }
     }
   }

@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+
+// User Context
+import { UserContext } from '../utils/UserContext';
 
 import {
     Flex,
@@ -26,6 +29,16 @@ import {
 //   const [showPassword, setShowPassword] = useState(false);
 
 const Signup = () => {
+
+    const [ { user }, dispatch ] = useContext(UserContext);
+
+    function handleLogIn(userData) {
+      dispatch({
+        type: 'LOGIN_USER',
+        payload: { data: userData}
+      });
+    }
+
     const [formState, setFormState] = useState({
       name: '',
       email: '',
@@ -54,6 +67,8 @@ const Signup = () => {
         });
   
         Auth.login(data.addUser.token);
+
+        handleLogIn(data.addUser.user);
       } catch (e) {
         console.error(e);
       }
