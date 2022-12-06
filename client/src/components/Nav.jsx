@@ -96,7 +96,7 @@ export default function Nav() {
                   <br />
                   <MenuDivider />
                   {/* <MenuItem>Your Room</MenuItem> */}
-                  {/* <MenuItem>Account Settings</MenuItem> */}
+                  <Link to='/profile'><MenuItem>My Profile</MenuItem></Link>
                   {/* <MenuItem onClick={handleLogIn}>Login</MenuItem> */}
                   {/* <br/> */}
                   <MenuItem onClick={handleLogOut}>Log Out</MenuItem>

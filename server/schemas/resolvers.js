@@ -13,6 +13,10 @@ const resolvers = {
       return await User.findOne({ email }).populate('hosted_room');
     },
 
+    find_username: async (parent, { username }) => {
+      return await User.findOne({ username }).populate('hosted_room');
+    },
+
     rooms: async () => {
       return await Room.find({}).populate('host_id')
     },

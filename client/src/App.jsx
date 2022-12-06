@@ -12,6 +12,7 @@ import Nav from './components/Nav';
 import Contact from './components/Contact.jsx'
 import Profile from './components/Profile.jsx'
 import Roomlist from './components/Roomlist.jsx'
+import OtherProfile from './components/OtherProfile.jsx'
 
 import { ChakraProvider } from '@chakra-ui/react';
 import Signup from './components/Signup';
@@ -79,6 +80,10 @@ function App() {
                 <Route 
                   path="/room-list" 
                   element={<Roomlist/>}
+                />
+                <Route 
+                  path="/profile/:name" 
+                  element={<OtherProfile/>}
                 />
               </Routes>
           </div>
