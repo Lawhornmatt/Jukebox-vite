@@ -16,7 +16,7 @@ function ourReducer(draft, action) {
             draft.videoCollection[0] = action.value;
             return;
         case 'removeFromCollection':
-            draft.videoCollection.shift();
+            draft.videoCollection[0].shift();
             return;
     }
 }
@@ -42,11 +42,13 @@ const Room = () => {
             try {
               let thisData;
               if(thisData != queryData) {
-                  setId(queryData.current_vid);
                   const ids = queryData.vid_queue.join(',');
                   const data = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${ids}&key=AIzaSyB93EpyzcT4xY7BIowr-YKv7arfLc6qfoA`, { signal: reqController.signal });
                   const jsonData = await data.json();
                   dispatch({ type: 'addToCollection', value: jsonData.items });
+              }
+              if (!Id) {
+                setId(queryData.current_vid);
               }
               thisData = queryData;
             } catch {
@@ -60,11 +62,12 @@ const Room = () => {
         }
     }, [queryData]);
 
-    function onPlayerStateChange(event) {
+    async function onPlayerStateChange(event) {
       // 0 means finished and 2 means paused
       if(event.data === 0) {
-        console.log('Video Finished Playing');
-        dispatch({ type: 'removeFromCollection' })
+        const id = await state.videoCollection[0][0].id;
+        setId(await id);
+        dispatch({ type: 'removeFromCollection' });
       }
     }
 
