@@ -1,12 +1,14 @@
 [
   {
     "room_name": "Empty Queue Room",
-    "current_vid": "dQw4w9WgXcQ"
+    "current_vid": "dQw4w9WgXcQ",
+    "messages": ["krearearaer", "Stillbord", "Goffhelp", "smidge" ]
   },
   {
     "room_name": "Music Room",
     "current_vid": "_F9IO9Plldc",
     "vid_queue": ["ksvMrXfk26A", "taNwhaBQS-0", "bQx91RR3Y8o", "eeE5yITxceA" ]
+
   },
   {
     "room_name": "Physics Room",

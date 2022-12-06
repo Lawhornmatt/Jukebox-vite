@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import VideoList from './VideoList';
 import Youtube from 'react-youtube';
 import { Input, InputGroup, Button, InputRightElement } from '@chakra-ui/react';
+import Chat from './Chat'
 // const getYoutubeID = require('get-youtube-id');
 
 const Room = () => {
@@ -22,6 +23,7 @@ const Room = () => {
 
     return(
         <>
+        <Chat position="absolute" right="0"></Chat>
             <div style={{margin: '0 auto',flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-evenly'}}>
                 <h1>Welcome to the room!</h1>
                 <label>Insert a YouTube video ID to queue</label>
@@ -40,8 +42,10 @@ const Room = () => {
                     </InputGroup>
                 </div>
                 
+                
                 <Youtube videoId={Id} opts={opts} />
             </div>
+            
             <VideoList videos= {[
     {
       "kind": "youtube#video",
@@ -387,7 +391,9 @@ const Room = () => {
     }
   ]} />
         </>
+        
     )
+    
 };
 
 export default Room;

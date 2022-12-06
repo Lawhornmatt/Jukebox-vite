@@ -10,6 +10,7 @@ import Homepage from './components/Homepage.jsx'
 import Room from './components/Room.jsx'
 import Nav from './components/Nav';
 import Contact from './components/Contact.jsx'
+import Profile from './components/Profile.jsx'
 import Roomlist from './components/Roomlist.jsx'
 
 import { ChakraProvider } from '@chakra-ui/react';
@@ -46,36 +47,40 @@ function App() {
         <Router>
           <div style={{display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw'}}>
             <Nav />
-            <Routes>
-              <Route 
-                path="/about" 
-                element={<About/>}
-              />
-              <Route 
-                path="/" 
-                element={<Homepage/>}
-              />
-              <Route 
-                path="/room" 
-                element={<Room/>}
-              />
-              <Route 
-                path="/login" 
-                element={<Login/>}
-              />
-              <Route 
-                path="/contact" 
-                element={<Contact/>}
-              />
-              <Route 
-                path="/signup" 
-                element={<Signup/>}
-              />
-              <Route 
-                path="/room-list" 
-                element={<Roomlist/>}
-              />
-            </Routes>
+              <Routes>
+                <Route 
+                  path="/about" 
+                  element={<About/>}
+                />
+                <Route 
+                  path="/" 
+                  element={<Homepage/>}
+                />
+                <Route 
+                  path="/room" 
+                  element={<Room/>}
+                />
+                <Route 
+                  path="/login" 
+                  element={<Login/>}
+                />
+                <Route 
+                  path="/contact" 
+                  element={<Contact/>}
+                />
+                <Route 
+                  path="/signup" 
+                  element={<Signup/>}
+                />
+                <Route 
+                  path="/profile" 
+                  element={<Profile/>}
+                />
+                <Route 
+                  path="/room-list" 
+                  element={<Roomlist/>}
+                />
+              </Routes>
           </div>
         </Router>
       </UserProvider>

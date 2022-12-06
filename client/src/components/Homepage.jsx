@@ -6,6 +6,7 @@ import InitialFocus from './Modal';
 // User Context
 //import { accessUser } from '../utils/UserContext';
 
+
 export default function Homepage (){
     //const { users, loginUser, logoutUser } = accessUser();  // Accesses the UserContext
     const [vantaEffect, setVantaEffect] = useState(0)

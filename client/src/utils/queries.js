@@ -25,6 +25,7 @@ export const FIND_ROOM = gql`
       room_name
       current_vid
       vid_queue
+      messages
     }
   }
 `;
