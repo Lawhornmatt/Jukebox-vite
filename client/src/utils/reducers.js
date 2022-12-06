@@ -1,12 +1,12 @@
-import { LOGIN_USER, LOGOUT_USER } from './actions';
+import { LOGIN_USER, LOGOUT_USER } from "./actions";
 
 // export const initialState = { user: 'No User Logged In' };
 export const initialState = { user: null };
 
 export const reducer = (state, action) => {
+  console.log("action: ", action);
   switch (action.type) {
     case LOGIN_USER: {
-
       const newUser = { ...action.payload };
 
       return { user: newUser.data };
