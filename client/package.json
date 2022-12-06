@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "proxy": "http://localhost:3001",
+  "proxy": "https://jukebox-project3.herokuapp.com/",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.13",
     "@chakra-ui/react": "^2.4.1",
