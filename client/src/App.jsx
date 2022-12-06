@@ -26,7 +26,7 @@ let httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql'
 });
 
-if (process.env.NOD_ENV == 'production') {
+if (process.env.NODE_ENV == 'production') {
   httpLink = createHttpLink({ uri: 'https://jukebox-project3.herokuapp.com' });
 };
 
