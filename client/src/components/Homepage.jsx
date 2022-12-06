@@ -1,14 +1,22 @@
-import React, {useState, useEffect, useRef} from 'react'
-import {Image, Box, Text, Flex, useColorModeValue,Button} from '@chakra-ui/react'
-import NET from 'vanta/dist/vanta.net.min'
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import {
+    Image, 
+    Box, 
+    Text, 
+    Flex, 
+    useColorModeValue,
+    Button } from '@chakra-ui/react';
+import NET from 'vanta/dist/vanta.net.min';
 import InitialFocus from './Modal';
 
 // User Context
-//import { accessUser } from '../utils/UserContext';
+import { UserContext } from '../utils/UserContext';
 
 
 export default function Homepage (){
-    //const { users, loginUser, logoutUser } = accessUser();  // Accesses the UserContext
+
+    const [ { user }, dispatch ] = useContext(UserContext);
+
     const [vantaEffect, setVantaEffect] = useState(0)
     const myRef = useRef(null)
     const color = useColorModeValue('blue', 'black')
