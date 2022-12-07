@@ -21,8 +21,8 @@ const resolvers = {
       return await Room.find({}).populate('host_id')
     },
 
-    find_room: async (parent, { ID }) => {
-      return await Room.findOne({ ID }).populate('host_id');
+    find_room: async (parent, { id }) => {
+      return await Room.findById(id).populate('host_id');
     },
 
   },

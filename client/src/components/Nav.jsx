@@ -1,4 +1,4 @@
-import { React, useContext } from 'react';
+import { React, useContext, useEffect } from 'react';
 import {
   Box,
   Flex,
@@ -43,6 +43,10 @@ export default function Nav() {
   }
   */
 
+  useEffect(() => {
+
+  }, []);
+
   function handleLogOut(e) {
     dispatch({
       type: 'LOGOUT_USER',
@@ -57,11 +61,9 @@ export default function Nav() {
           <Flex alignItems={'center'} padding={'5px'}>
 
             <Link to='/'><Box paddingRight={'15px'}>JukeBox</Box></Link>
-            {user ? (
+            
             <Link to='/room-list'><Button colorScheme='blue'marginRight={'10px'}>Rooms</Button></Link>
-            ):(
-            <Link to='/login'><Button colorScheme='blue'marginRight={'10px'}>Rooms</Button></Link>
-            )}
+
             <Link to='/about'><Button colorScheme='blue'marginRight={'10px'}>About</Button></Link>
 
             <Link to='/contact'><Button colorScheme='blue'>Contact</Button></Link>
