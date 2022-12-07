@@ -45,7 +45,7 @@ Our app has React.js (built in a development environment by Vite) on the front e
 
 ## INSTALLATION:
 
-Go to our Heroku Deployment (coming soon)  
+Go to our Heroku Deployment [Link](https://jukebox-project3.herokuapp.com/)
 
 ## USAGE:
 
